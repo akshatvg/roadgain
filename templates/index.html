@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Linking and Meta Tags -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>RoadGain</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link href="css/the-big-picture.css" rel="stylesheet">
+
+  <style>
+    body,
+    html {
+      background-color: rgba(204, 186, 186, 0.589);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <section style="margin-top: 7vh;">
+    <div>
+      <h1 class="text-center pt-2">RoadGain</h1>
+    </div>
+  </section>
+
+  <section style="margin-top: 4vh;">
+    <div class="container">
+      <form action="#" method="post" novalidate="novalidate" class="search-sec">
+        <div class="col-lg-12">
+          <div class="row justify-content-center">
+            <input type="text" class="form-control search-slt mb-4" placeholder="Enter City or State" id="address">
+            <button type="button" class="btn btn-primary wrn-btn" id="analyze">Analyze</button>
+          </div>
+          <div class="row">
+            <h5 style="color: rgb(43, 180, 43);" class="text-center p-4"> Improvement of up to {{best_improvement}}% per
+              road possible.</h5>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section>
+    <div class="container mb-4 p-5">
+      <div class="row">
+        <div class="col-lg-12">
+          {{folium|safe}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+
+    document.getElementById('analyze').addEventListener('click', function () {
+      window.location.href = "/?address=" + escape($("#address").val());
+    })
+
+  </script>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

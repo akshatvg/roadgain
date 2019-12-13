@@ -7,7 +7,7 @@ import pickle
 
 from cars_interface import get_plot
 
-app = Flask(__name__, template_folder='front')
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 @app.route('/index')
