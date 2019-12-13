@@ -93,6 +93,7 @@ def get_removable_streets(address, car_count=1000, streets_to_remove=200):
     OUT_FILE = f'texts/{stripped_address}_{car_count}_{best_node_a}_{best_node_b}_out.txt'
     true_results = visualize_file(OUT_FILE, index_to_nodes)
     best_improvement = -min(results)[0]
+    #shutil.rmtree("texts") 
     return orig_results, true_results, to_remove, best_improvement, G
 
 def vals_to_colors(vals):
@@ -111,11 +112,12 @@ def get_plot(address):
         if node_str(node_a, node_b) in to_remove:
             cols[i] = '#73db67'
 
-    gdf_edges = ox.graph_to_gdfs(G, nodes=False, fill_edge_geometry=True)
+    gdf_nodes, gdf_edges = ox.save_load.graph_to_gdfs(G, nodes=True,edges=True, fill_edge_geometry=True)
     gdf_edges['edge_color'] = cols
     #print('heyyyyyyy',gdf_edges,'\n',best_improvement)
     fplot = ox.plot.plot_graph_folium(G)
-    print(G)
+    print(type(G),type(gdf_edges))
     print("n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",gdf_edges)
-    return ox.plot.plot_graph_folium(G), best_improvement
+    gx = ox.save_load.gdfs_to_graph(gdf_nodes,gdf_edges)
+    return ox.plot.plot_graph_folium(gx), best_improvement
     #return ox.plot.plot_graph_folium(gdf_edges), best_improvement
