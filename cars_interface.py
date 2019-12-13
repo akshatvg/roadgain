@@ -109,15 +109,32 @@ def get_plot(address):
     cols = vals_to_colors([(orig_results[node_str(node_a, node_b)] if node_str(node_a, node_b) in orig_results else 0) for (node_a, node_b) in G.edges()])
     #print(G.edges(),orig_results,true_results,to_remove,best_improvement)
     for i, (node_a, node_b) in enumerate(G.edges()):
+        print((node_str(node_a,node_b)),to_remove)
         if node_str(node_a, node_b) in to_remove:
-            cols[i] = '#73db67'
-
+            cols[i] = '#73db67ff'
+    col2=[]
+    for i in cols:
+        col2.append(i[:7])
     gdf_nodes, gdf_edges = ox.save_load.graph_to_gdfs(G, nodes=True,edges=True, fill_edge_geometry=True)
-    gdf_edges['edge_color'] = cols
+    gdf_edges['edge_color'] = col2
     #print('heyyyyyyy',gdf_edges,'\n',best_improvement)
     fplot = ox.plot.plot_graph_folium(G)
-    print(type(G),type(gdf_edges))
-    print("n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",gdf_edges)
+    #print('\n\n\n',col2,'\n\n\n',col2)
+    #print("n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",gdf_edges)
     gx = ox.save_load.gdfs_to_graph(gdf_nodes,gdf_edges)
-    return ox.plot.plot_graph_folium(gx), best_improvement
+    if gx == G:
+        print("\n\n\n\n\n\n\n\n NIGGGAAA")
+    
+    for i in to_remove:
+        x = i.split(',')
+    y=[]
+    sl=[]
+    for i in x:
+        y.append(int(i))
+    sl.append(y)
+    print('\n\n\n\n\n\n\n',sl)
+    sl.append([49545190,49545189])
+    sl.append([49545190,49431451])
+    
+    return ox.plot.plot_graph_routes(gx,sl,route_color='r',edge_color='#999999'), best_improvement
     #return ox.plot.plot_graph_folium(gdf_edges), best_improvement
