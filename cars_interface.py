@@ -11,7 +11,8 @@ from random import sample
 from subprocess import Popen
 from matplotlib import pyplot as plt
 
-
+global yu
+yu=[]
 def node_str(node_a, node_b):
     return str(node_a) + "," + str(node_b)
 
@@ -88,7 +89,7 @@ def get_removable_streets(address, car_count=1000, streets_to_remove=200):
         with open(OUT_FILE) as f:
             cost_removed = float(f.readline())
             results.append([round((cost_removed - total_cost) / total_cost, 3), node_str(NODE_A, NODE_B)])
-            if cost_removed < total_cost:
+            if cost_removed < total_cost+1111:
                 to_remove.append(node_str(index_to_nodes[int(NODE_A)], index_to_nodes[int(NODE_B)]))
     best_node_a, best_node_b = min(results)[1].split(",")
     OUT_FILE = f'texts/{stripped_address}_{car_count}_{best_node_a}_{best_node_b}_out.txt'
@@ -119,9 +120,6 @@ def get_plot(address):
     fplot = ox.plot.plot_graph_folium(G)
     print("wertyu")
     gx = ox.save_load.gdfs_to_graph(gdf_nodes,gdf_edges)
-
-    if gx == G:
-        print("\n\n\n\n\n\n\n\n NIGGGAAA")
     x=[]
     y=[]
     for i in to_remove:
@@ -129,17 +127,86 @@ def get_plot(address):
         if x !=[]:
             for j in x:
                 y.append(int(j))
+    z=[]
+    for i in x:
+        z.append(int(i))
+    file1 = open("points.txt","a")
+    for i in range(0,len(y)-2,2):
+        x = str(y[i]) +','+ str(y[i+1])+'\n'
+        print(x)
+        file1.writelines(x)
+    file1.close
     #wirting a text file
     #print('\n\n\n\n\n\n\ngiiwedfghj',ox.plot_graph_routes(gx,sl,route_color='r'))
     #ox.plot_graph_routes(gx,sl,route_color='r')
     #u=[4158749895, 205025778, 42430521, 42430571, 4149936245, 42436181]
-    return gx,y,best_improvement
+    return gx,z,best_improvement
 
 def akshat(address):
-    gx,y,best_improvement = get_plot(address)
-
-    if y!=[]:
-        return ox.plot.plot_route_folium(gx,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
+    yu.append(address)
+    if len(yu) == 1:
+        f=1
+    elif yu[-1] == yu[-2]:
+        f=1
     else:
-        return ox.plot.plot_graph_folium(gx), best_improvement
+        f=0
+    if f==1:
+        if not os.path.exists("points.txt"):
+            gx,z,best_improvement = get_plot(address)
+            global gx1
+            gx1 = gx
+            global bt1
+            bt1 = best_improvement
 
+            if z!=[]:
+                return ox.plot.plot_route_folium(gx,z,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
+            else:
+                return ox.plot.plot_graph_folium(gx), best_improvement
+        else:
+            f1 = open("points.txt","r")
+            to_remove = f1.readline()
+            print(type(to_remove))
+            with open("points.txt", "r") as f:
+                lines = f.readlines()
+            with open("points.txt", "w") as f:
+                for line in lines:
+                    if line != to_remove:
+                        f.write(line)
+            x=[]
+            y=[]
+            x = to_remove.split(',')
+            if x !=[]:
+                for j in x:
+                    print(j)
+                    y.append(int(j))
+            return ox.plot.plot_route_folium(gx1,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx1,edge_width=3),route_width=5), bt1
+
+    else:
+        os.remove("points.txt")
+        if not os.path.exists("points.txt"):
+            gx,z,best_improvement = get_plot(address)
+            gx1 = gx
+            bt1 = best_improvement
+
+            if z!=[]:
+                return ox.plot.plot_route_folium(gx,z,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
+            else:
+                return ox.plot.plot_graph_folium(gx), best_improvement
+        else:
+            f1 = open("points.txt","r")
+            to_remove = f1.readline()
+            print(type(to_remove))
+            with open("points.txt", "r") as f:
+                lines = f.readlines()
+            with open("points.txt", "w") as f:
+                for line in lines:
+                    if line != to_remove:
+                        f.write(line)
+            x=[]
+            y=[]
+            x = to_remove.split(',')
+            if x !=[]:
+                for j in x:
+                    print(j)
+                    y.append(int(j))
+            return ox.plot.plot_route_folium(gx1,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx1,edge_width=3),route_width=5), bt1

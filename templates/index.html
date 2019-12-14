@@ -66,9 +66,16 @@
     </section>
 
     <script>
+        var myVar = setInterval(sendr, 11000);
         document.getElementById('analyze').addEventListener('click', function() {
             window.location.href = "/?address=" + escape($("#address").val());
+
         })
+
+        function sendr() {
+            console.log('niba');
+            document.location.reload()
+        }
     </script>
 
     <script>
