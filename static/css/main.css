@@ -10,6 +10,8 @@ html {
     z-index: 0;
 }
 
+
+/*
 div#preloader {
     position: fixed;
     left: 0;
@@ -21,6 +23,7 @@ div#preloader {
     background: whitesmoke url('../images/preloader.gif') no-repeat center center;
     margin: 0;
 }
+*/
 
 .search-slt {
     width: 300px;

@@ -27,6 +27,7 @@
 
 <body>
 
+
   <div id="particles-js"></div>
   <div id="preloader"></div>
 
@@ -52,9 +53,8 @@
               per selected
               road possible.</h5>
           </div>
+
         </div>
-      </form>
-    </div>
   </section>
 
   <!-- Map -->
@@ -69,11 +69,16 @@
   </section>
 
   <script>
-
+    var myVar = setInterval(sendr, 11000);
     document.getElementById('analyze').addEventListener('click', function () {
       window.location.href = "/?address=" + escape($("#address").val());
+
     })
 
+    function sendr() {
+      console.log('niba');
+      document.location.reload()
+    }
   </script>
 
   <script>
