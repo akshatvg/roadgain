@@ -29,3 +29,32 @@ div#preloader {
     width: 300px;
     min-width: 300px;
 }
+
+body {
+    background-image: url("../images/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+body:after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0.2;
+}

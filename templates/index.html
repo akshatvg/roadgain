@@ -21,41 +21,50 @@
   <link rel="stylesheet" href="../static/css/main.css">
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="../static/js/particles.min.js"></script>
+  <!-- <script src="../static/js/particles.min.js"></script> -->
 
 </head>
 
-<body>
+<body class="overlay black">
 
 
-  <div id="particles-js"></div>
-  <div id="preloader"></div>
+  <!-- <div id="particles-js"></div>
+  <div id="preloader"></div> -->
 
-  <section style="padding-top: 5vh;">
-    <div class="container">
-      <h1 class="text-center pt-2 row justify-content-center" style="color: rgb(0, 174, 255)">RoadGain</h1>
+  <center>
+    <div class="card" style="width: 50vh;margin-top: 10vh;box-shadow: 0px 2px 10px rgba(114, 112, 112, 0.582);">
+      <div class="card-body">
+
+        <section style="padding-top: 5vh;">
+          <div class="container">
+            <h1 class="text-center pt-2 row justify-content-center" style="color: rgb(0, 0, 0);z-index:100;">RoadGain
+            </h1>
+          </div>
+        </section>
+
+        <section style=" margin-top: 4vh;">
+          <div class="container">
+            <form action="#" method="post" novalidate="novalidate" class="search-sec">
+              <div class="col-lg-12">
+                <div class="row justify-content-center">
+                  <input type="text" class="form-control search-slt mb-4" placeholder="Enter City or State" id="address"
+                    style="z-index:99;">
+                </div>
+                <div class="row justify-content-center">
+                  <input type="button" class="btn btn-primary wrn-btn" id="analyze" style="z-index:99;"
+                    value="Analyze" />
+                </div>
+                <div class="row">
+                  <p style="color: rgb(0, 0, 0);z-index:99;" class="text-center p-4"> Improvement of up to
+                    {{best_improvement}}%
+                    per selected road possible.</p>
+                </div>
+              </div>
+        </section>
+
+      </div>
     </div>
-  </section>
-
-  <section style=" margin-top: 4vh;">
-    <div class="container">
-      <form action="#" method="post" novalidate="novalidate" class="search-sec">
-        <div class="col-lg-12">
-          <div class="row justify-content-center">
-            <input type="text" class="form-control search-slt mb-4" placeholder="Enter City or State" id="address">
-          </div>
-          <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary wrn-btn" id="analyze">Analyze</button>
-          </div>
-          <div class="row">
-            <h5 style="color: rgb(122, 243, 122);" class="text-center p-4"> Improvement of up to
-              {{best_improvement}}%
-              per selected
-              road possible.</h5>
-          </div>
-
-        </div>
-  </section>
+  </center>
 
   <!-- Map -->
   <section>
@@ -81,12 +90,12 @@
     }
   </script>
 
-  <script>
+  <!-- <script>
     // Particles.js
     particlesJS.load('particles-js', '../static/js/particlesjs-config.json', function () {
       console.log('Particles.js working!');
     });
-  </script>
+  </script> -->
 
   <script src="../static/js/jquery.min.js"></script>
 
