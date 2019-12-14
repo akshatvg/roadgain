@@ -123,18 +123,22 @@ def get_plot(address):
     if gx == G:
         print("\n\n\n\n\n\n\n\n NIGGGAAA")
     x=[]
+    y=[]
     for i in to_remove:
         x = i.split(',')
-    y=[]
-    sl=[]
-    if x !=[]:
-        for i in x:
-            y.append(int(i))
-        sl.append(y)
+        if x !=[]:
+            for j in x:
+                y.append(int(j))
+    #wirting a text file
     #print('\n\n\n\n\n\n\ngiiwedfghj',ox.plot_graph_routes(gx,sl,route_color='r'))
     #ox.plot_graph_routes(gx,sl,route_color='r')
+    #u=[4158749895, 205025778, 42430521, 42430571, 4149936245, 42436181]
+    return gx,y,best_improvement
 
-    if sl!=[]:
+def akshat(address):
+    gx,y,best_improvement = get_plot(address)
+
+    if y!=[]:
         return ox.plot.plot_route_folium(gx,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
     else:
         return ox.plot.plot_graph_folium(gx), best_improvement

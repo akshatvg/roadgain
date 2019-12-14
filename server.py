@@ -5,7 +5,7 @@ from flask import request
 import osmnx as ox
 import pickle
 
-from cars_interface import get_plot
+from cars_interface import akshat
 
 app = Flask(__name__, template_folder='templates')
 
@@ -16,7 +16,7 @@ def index():
     folium_html = ''
     best_improvement = 0
     if address is not None:
-        fplot, best_improvement = get_plot(address)
+        fplot, best_improvement = akshat(address)
         folium_html = fplot._repr_html_()
         #print(folium_html)
     return render_template('index.html', title='Home', folium=folium_html, best_improvement=best_improvement * -100)

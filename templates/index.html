@@ -3,94 +3,89 @@
 
 <head>
 
-  <!-- Linking and Meta Tags -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Linking and Meta Tags -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>RoadGain</title>
+    <title>RoadGain</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Styles -->
-  <link href="../static/css/the-big-picture.css" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/main.css">
+    <!-- Custom Styles -->
+    <link href="../static/css/the-big-picture.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/main.css">
 
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="../static/js/particles.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="../static/js/particles.min.js"></script>
 
 </head>
 
 <body>
 
-  <div id="particles-js"></div>
-  <div id="preloader"></div>
+    <div id="particles-js"></div>
+    <div id="preloader"></div>
 
-  <section style="padding-top: 5vh;">
-    <div class="container">
-      <h1 class="text-center pt-2 row justify-content-center" style="color: rgb(0, 174, 255)">RoadGain</h1>
-    </div>
-  </section>
-
-  <section style=" margin-top: 4vh;">
-    <div class="container">
-      <form action="#" method="post" novalidate="novalidate" class="search-sec">
-        <div class="col-lg-12">
-          <div class="row justify-content-center">
-            <input type="text" class="form-control search-slt mb-4" placeholder="Enter City or State" id="address">
-          </div>
-          <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary wrn-btn" id="analyze">Analyze</button>
-          </div>
-          <div class="row">
-            <h5 style="color: rgb(122, 243, 122);" class="text-center p-4"> Improvement of up to
-              {{best_improvement}}%
-              per
-              road possible.</h5>
-          </div>
+    <section style="padding-top: 5vh;">
+        <div class="container">
+            <h1 class="text-center pt-2 row justify-content-center" style="color: rgb(0, 174, 255)">RoadGain</h1>
         </div>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- Map -->
-  <section>
-    <div class="container mb-4 p-5">
-      <div class="row">
-        <div class="col-lg-12">
-          {{folium|safe}}
+    <section style=" margin-top: 4vh;">
+        <div class="container">
+            <form action="#" method="post" novalidate="novalidate" class="search-sec">
+                <div class="col-lg-12">
+                    <div class="row justify-content-center">
+                        <input type="text" class="form-control search-slt mb-4" placeholder="Enter City or State" id="address">
+                    </div>
+                    <div class="row justify-content-center">
+                        <button type="button" class="btn btn-primary wrn-btn" id="analyze">Analyze</button>
+                    </div>
+                    <div class="row">
+                        <h5 style="color: rgb(122, 243, 122);" class="text-center p-4"> Improvement of up to {{best_improvement}}% per road possible.</h5>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
+    <!-- Map -->
+    <section>
+        <div class="container mb-4 p-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{folium|safe}}
+                </div>
+            </div>
+        </div>
+    </section>
 
-    document.getElementById('analyze').addEventListener('click', function () {
-      window.location.href = "/?address=" + escape($("#address").val());
-    })
+    <script>
+        document.getElementById('analyze').addEventListener('click', function() {
+            window.location.href = "/?address=" + escape($("#address").val());
+        })
+    </script>
 
-  </script>
+    <script>
+        // Particles.js
+        particlesJS.load('particles-js', '../static/js/particlesjs-config.json', function() {
+            console.log('Particles.js working!');
+        });
+    </script>
 
-  <script>
-    // Particles.js
-    particlesJS.load('particles-js', '../static/js/particlesjs-config.json', function () {
-      console.log('Particles.js working!');
-    });
-  </script>
+    <script src="../static/js/jquery.min.js"></script>
 
-  <script src="../static/js/jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="../static/js/main.js"></script>
 
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-  <script src="../static/js/main.js"></script>
-
-  <!-- Bootstrap JavaScript -->
-  <!-- <script src="../static/vendor/jquery/jquery.min.js"></script> -->
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <!-- <script src="../static/vendor/jquery/jquery.min.js"></script> -->
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 
