@@ -1,0 +1,28 @@
+html {
+    color: rgba(0, 0, 0, 0.548);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 0, 0, 0.404);
+    z-index: 0;
+}
+
+div#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+    background: whitesmoke url('../images/preloader.gif') no-repeat center center;
+    margin: 0;
+}
+
+.search-slt {
+    width: 300px;
+    min-width: 300px;
+}
