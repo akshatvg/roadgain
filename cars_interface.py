@@ -130,10 +130,10 @@ def get_plot(address):
         for i in x:
             y.append(int(i))
         sl.append(y)
-    print('\n\n\n\n\n\n\ngiiwedfghj',ox.plot_graph_routes(gx,sl,route_color='r'))
+    #print('\n\n\n\n\n\n\ngiiwedfghj',ox.plot_graph_routes(gx,sl,route_color='r'))
     
     if sl!=[]:
-        return ox.plot.plot_route_folium(gx,y,route_color='r'), best_improvement
+        return ox.plot.plot_route_folium(gx,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
     else:
         return ox.plot.plot_graph_folium(gx), best_improvement
 
