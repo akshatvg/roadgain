@@ -87,7 +87,7 @@ def get_removable_streets(address, car_count=1000, streets_to_remove=200):
         with open(OUT_FILE) as f:
             cost_removed = float(f.readline())
             results.append([round((cost_removed - total_cost) / total_cost, 3), node_str(NODE_A, NODE_B)])
-            if cost_removed < total_cost:
+            if cost_removed < total_cost+1:
                 to_remove.append(node_str(index_to_nodes[int(NODE_A)], index_to_nodes[int(NODE_B)]))
     best_node_a, best_node_b = min(results)[1].split(",")
     OUT_FILE = f'texts/{stripped_address}_{car_count}_{best_node_a}_{best_node_b}_out.txt'
@@ -121,18 +121,17 @@ def get_plot(address):
 
     if gx == G:
         print("\n\n\n\n\n\n\n\n NIGGGAAA")
-    x=[]
+    print(to_remove)
+    y=[]
     for i in to_remove:
         x = i.split(',')
-    y=[]
-    sl=[]
-    if x !=[]:
-        for i in x:
-            y.append(int(i))
-        sl.append(y)
+        if x!=[]:
+            for j in x:
+                y.append(int(j))
+    print('\n\n\n',y)
     #print('\n\n\n\n\n\n\ngiiwedfghj',ox.plot_graph_routes(gx,sl,route_color='r'))
     
-    if sl!=[]:
+    if y!=[]:
         return ox.plot.plot_route_folium(gx,y,route_color='#cc0000',route_map=ox.plot.plot_graph_folium(gx,edge_width=3),route_width=5), best_improvement
     else:
         return ox.plot.plot_graph_folium(gx), best_improvement

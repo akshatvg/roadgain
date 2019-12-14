@@ -18,8 +18,8 @@ def index():
     if address is not None:
         fplot, best_improvement = get_plot(address)
         folium_html = fplot._repr_html_()
-        print(folium_html)
+        #print(folium_html)
     return render_template('index.html', title='Home', folium=folium_html, best_improvement=best_improvement * -100)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='127.0.0.1', port=5000)
