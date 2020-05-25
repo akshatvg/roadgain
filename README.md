@@ -24,7 +24,7 @@ We also intend to deal the land saved by reducing a lane or street with the gove
 The yearly price for hosting and maintaining a website (frontend + backend) is approximately Rs. 15,000. 
 
 ### Profit
-Assuming we come up with a deal to receive Rs. 5,000 per sq. feet of redundant roads, we can find approximately thousands of sq. feet (let’s assume 1,000 sq. feet) in a metropoliton city. This way, we can earn about Rs. 50,000 per city.
+Assuming we come up with a deal to receive Rs. 5,000 per sq. feet of redundant roads, we can find approximately thousands of sq. feet (let’s assume 1,000 sq. feet) in a metropoliton city. This way, we can earn about Rs. 50,00,000 per city.
 There are 4,000 cities in India according to nriol.com. Joining the dots, we now have a potential of Rs. 4,000 x 1,000 sq. feet= Rs. 40,00,000 with just one country- India.
 There are 195 countries in the world. Our profit margin can go really high!
 
